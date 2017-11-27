@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.web</groupId>
-	<artifactId>indie</artifactId>
-	<name>IndieContent</name>
+	<artifactId>board</artifactId>
+	<name>boardMVN</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -32,46 +32,20 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>	
-		
-		
-		<dependency>
-		    <groupId>com.oracle</groupId>
-		    <artifactId>ojdbc6</artifactId>
-		    <version>11.2.0</version>
-		</dependency>
-		
-		<!--fileupload -->
-				<dependency>
-		    <groupId>commons-io</groupId>
-		    <artifactId>commons-io</artifactId>
-		    <version>2.0.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>commons-fileupload</groupId>
-		    <artifactId>commons-fileupload</artifactId>
-		    <version>1.2.2</version>
-		</dependency>
-		
-		
-		<!-- mybatis -->
-		<dependency>
-	    	<groupId>org.mybatis</groupId>
-	    	<artifactId>mybatis</artifactId>
-	    	<version>3.2.3</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.mybatis</groupId>
-		    <artifactId>mybatis-spring</artifactId>
-		    <version>1.2.2</version>
-		</dependency>
-		
 		
 		<!-- Logging -->
 		<dependency>
@@ -115,14 +89,44 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-
+		<!--fileupload -->
+				<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.2.2</version>
+		</dependency>
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+
 				
+		
+		<dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.2.0</version>
+		</dependency> 
+		<!-- mybatis -->
+		<dependency>
+	    	<groupId>org.mybatis</groupId>
+	    	<artifactId>mybatis</artifactId>
+	    	<version>3.2.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>1.2.2</version>
+		</dependency>
+		
+		
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

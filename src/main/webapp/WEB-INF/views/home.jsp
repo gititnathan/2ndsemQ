@@ -25,6 +25,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
+	        <a href = "board_write">ㅋㅋㅋ</a>
 		  <p>앨범명</p>
           <p>아티스트 이름</p>
           <img src="${pageContext.request.contextPath}/resources/redvelvet.jpg" style="width:100%" alt="앨범이미지">
@@ -33,14 +34,45 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
         <div class="w3-container">
           
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>사는 곳</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>사는 곳
+			          <iframe  width="250"
+			  height="150"
+			  frameborder="0" style="border:0"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCWCmDbePwXsUINuJcoorxJnFZw6O4Z8R4
+			    &q=Seoul,Korea" allowfullscreen>
+			</iframe>
+          </p>
           <p><i class="fa fa-music fa-fw w3-margin-right w3-large w3-text-teal"></i>장르</p>
           <p><i class="fa fa-group fa-fw w3-margin-right w3-large w3-text-teal"></i>좋아하는 아티스트</p>
           <hr>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i></b></p>
-          <p>팁 주기 버튼 <input type="button" onload=""  class="w3-light-grey w3-round-xlarge w3-small" value="팁주기"></p>
-          <p><a href="">굿즈 구매 웹사이트 링크</a></p>
+         <p>
+			<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+				
+				 <input type="hidden" name="cmd" value="_xclick">
+				 <input type="hidden" name="business" value="seller001@test.com">
+				 <input type="hidden" name="item_name" value="Content Name">
+				<input type="hidden" name="currency_code" value="KRW">
+				 아티스트에게 팁주기<input type="hidden" name="item_number" value="0001"><br>
+				 가격 : <input type="text" name="amount" value="10" style ="width : 100px;"><br>
+				
+				 <input type="hidden" name="custom" value="회원번호">
+				
+				 <input type="hidden" name="charset" value="UTF-8">
+				
+				 <input type="image" name="submit" border="0" 
+				
+				src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+				
+				alt="PayPal - The safer, easier way to pay online">
+				
+			</form>
+         </p>
+         
+         
+         <p><a href="">굿즈 구매 웹사이트 링크</a></p>
+          
+
           <p>Trending Music Playlist</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
@@ -86,11 +118,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <h6 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
         <input  class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="앨범영상">
         <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="앨범설명">
-        <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="연락처"></h6>
+        <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="연락처">
+         <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="작곡/ 세션">
+          <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="투어 일정"></h6>
         <div class="w3-container">
           <hr>
         </div>
         <div class="w3-container">
+        	<p>
+        	<iframe width="560" height="315" src="https://www.youtube.com/embed/mGXB7fLjQWY" frameborder="0" allowfullscreen></iframe></p>		
           <p>본인 연락처(이메일) / 외부 SNS 링크들/ 매니저 연락처</p><br>
         </div>
       </div>
