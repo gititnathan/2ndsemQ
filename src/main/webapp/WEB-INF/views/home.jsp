@@ -34,7 +34,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
         <div class="w3-container">
           
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>사는 곳
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>사는 곳<br>
 			          <iframe  width="250"
 			  height="150"
 			  frameborder="0" style="border:0"
@@ -98,7 +98,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-container">
           <h5 class="w3-opacity"><b>음악 리스트</b></h5>
           <h6 class="w3-text-teal"><i class="fa fa-headphones fa-fw w3-margin-right"></i>Jan 2015 -	<span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p align="center"><i class="fa fa-backward fa-fw w3-margin-right"></i><i class="fa fa-play fa-fw w3-margin-right"></i><i class="fa fa-forward fa-fw w3-margin-right"></i></p>
+          <p align="center">
+         <!-- Music Player -->
+          <iframe width="100%" height="166" scrolling="no" frameborder="no"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;{ ADD YOUR PARAMETERS HERE }">
+</iframe>
           <hr>
         </div>
         <div class="w3-container">
@@ -107,8 +111,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>음악목록</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
+          <p><iframe width="600" height="430" src="//www.cincopa.com/media-platform/iframe.aspx?fid=AIBASXc7-7zv!Ag0Cqq6ltcaH" frameborder="0" allowfullscreen scrolling="no"></iframe></p><br>
         </div>
       </div>
 
