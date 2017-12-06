@@ -15,48 +15,33 @@ public class AlbumMapper {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public List<AlbumDBBean> listBoard(){
+	public List<AlbumDBBean> listAlbum(){
 		//sqlSession안의 중요 메소드
 		//selectList, selectOne, insert, update, delete
-		return sqlSession.selectList("listBoard");
+		return sqlSession.selectList("listAlbum");
 	}
 
-	public int insertBoard(AlbumDBBean dto) {
-		return sqlSession.insert("insertBoard", dto);
+	public int insertAlbum(AlbumDBBean dto) {
+		return sqlSession.insert("insertAlbum", dto);
 	}
 
-	public AlbumDBBean getBoard(int num, String mode) {
+	public AlbumDBBean getAlbum(int num, String mode) {
 		if(mode.equals("content")) {
 			readcount(num);
 		}
-		return sqlSession.selectOne("getBoard", num);
+		return sqlSession.selectOne("getAlbum", num);
 	}
 
-	public int deleteBoard(int num) {
-		return sqlSession.delete("deleteBoard", num);
+	public int deleteAlbum(int num) {
+		return sqlSession.delete("deleteAlbum", num);
 	}
 	
 	public void readcount(int num) {
 		sqlSession.update("readcount", num);
 	}
 
-	public int updateBoard(AlbumDBBean dto) {
-		return sqlSession.update("updateBoard", dto);
+	public int updateAlbum(AlbumDBBean dto) {
+		return sqlSession.update("updateAlbum", dto);
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

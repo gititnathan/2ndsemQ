@@ -2,29 +2,30 @@ package com.web.model;
 
 public class AlbumDBBean {
 	private int albumnum;
-	private String albumName;
-	private String genre;
+	private int artistnum;
+	private String albumtitle;
+	private String genre;	
 	private String musicFiles;
-	private String albumImage;
-	private String musicVideoLink;
-	private String albumDescription;
-	private int artist;
+	private String mvLink;
+	private String albumDesc;
 	private int downloadcount;
 	private int readcount;
 	private int uplike;
 	private int regdate;
+	private String contributor;
+	private String albumImage;
 	
+	public String getContributor() {
+		return contributor;
+	}
+	public void setContributor(String contributor) {
+		this.contributor = contributor;
+	}
 	public int getAlbumnum() {
 		return albumnum;
 	}
 	public void setAlbumnum(int albumnum) {
 		this.albumnum = albumnum;
-	}
-	public String getAlbumName() {
-		return albumName;
-	}
-	public void setAlbumName(String albumName) {
-		this.albumName = albumName;
 	}
 	public String getGenre() {
 		return genre;
@@ -44,23 +45,29 @@ public class AlbumDBBean {
 	public void setAlbumImage(String albumImage) {
 		this.albumImage = albumImage;
 	}
-	public String getMusicVideoLink() {
-		return musicVideoLink;
+	public int getArtistnum() {
+		return artistnum;
 	}
-	public void setMusicVideoLink(String musicVideoLink) {
-		this.musicVideoLink = musicVideoLink;
+	public void setArtistnum(int artistnum) {
+		this.artistnum = artistnum;
 	}
-	public String getAlbumDescription() {
-		return albumDescription;
+	public String getAlbumtitle() {
+		return albumtitle;
 	}
-	public void setAlbumDescription(String albumDescription) {
-		this.albumDescription = albumDescription;
+	public void setAlbumtitle(String albumtitle) {
+		this.albumtitle = albumtitle;
 	}
-	public int getArtist() {
-		return artist;
+	public String getMvLink() {
+		return mvLink;
 	}
-	public void setArtist(int artist) {
-		this.artist = artist;
+	public void setMvLink(String mvLink) {
+		this.mvLink = mvLink;
+	}
+	public String getAlbumDesc() {
+		return albumDesc;
+	}
+	public void setAlbumDesc(String albumDesc) {
+		this.albumDesc = albumDesc;
 	}
 	public int getDownloadcount() {
 		return downloadcount;
@@ -86,7 +93,5 @@ public class AlbumDBBean {
 	public void setRegdate(int regdate) {
 		this.regdate = regdate;
 	}
-	
-	
 	
 }

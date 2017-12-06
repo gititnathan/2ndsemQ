@@ -22,5 +22,6 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.web.indie" />
-	
+	<context:component-scan base-package="com.web.model" />
+	<context:component-scan base-package="com.web.service" />
 </beans:beans>

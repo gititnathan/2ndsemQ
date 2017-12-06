@@ -3,15 +3,40 @@
     
 <!DOCTYPE html>
 <html>
+<head>
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- accordion bootstrap 적용하는거 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- 구글 map 반응형웹 -->
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
 </style>
+
+
+</head>
 <body class="w3-light-grey">
 
 <!-- Page Container --> 
@@ -25,6 +50,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
+        <a href="file_upload">ㄷㄷㄷㄷ
+				</a>
 	        <a href = "board_write">ㅋㅋㅋ</a>
 		  <p>앨범명</p>
           <p>아티스트 이름</p>
@@ -35,12 +62,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-container">
           
           <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>사는 곳<br>
-			          <iframe  width="250"
-			  height="150"
-			  frameborder="0" style="border:0"
-			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCWCmDbePwXsUINuJcoorxJnFZw6O4Z8R4
-			    &q=Seoul,Korea" allowfullscreen>
-			</iframe>
+			          <div class="map-responsive">
+    <iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzFV5gXu_366ntwi1PIoa2RqUxD7PRByg
+    &q=Space+Needle,Seattle+WA" allowfullscreen>
+</iframe>
+</div>
           </p>
           <p><i class="fa fa-music fa-fw w3-margin-right w3-large w3-text-teal"></i>장르</p>
           <p><i class="fa fa-group fa-fw w3-margin-right w3-large w3-text-teal"></i>좋아하는 아티스트</p>
@@ -55,15 +85,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 				<input type="hidden" name="currency_code" value="KRW">
 				 아티스트에게 팁주기<input type="hidden" name="item_number" value="0001"><br>
 				 가격 : <input type="text" name="amount" value="10" style ="width : 100px;"><br>
-				
 				 <input type="hidden" name="custom" value="회원번호">
-				
 				 <input type="hidden" name="charset" value="UTF-8">
-				
 				 <input type="image" name="submit" border="0" 
-				
 				src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
-				
 				alt="PayPal - The safer, easier way to pay online">
 				
 			</form>
@@ -111,28 +136,78 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>음악목록</b></h5>
-          <p><iframe width="600" height="430" src="//www.cincopa.com/media-platform/iframe.aspx?fid=AIBASXc7-7zv!Ag0Cqq6ltcaH" frameborder="0" allowfullscreen scrolling="no"></iframe></p><br>
+          <p></p><br>
         </div>
       </div>
 
 
 	<!-- right under -->
       <div class="w3-container w3-card w3-white">
-        <h6 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
-        <input  class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="앨범영상">
-        <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="앨범설명">
-        <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="연락처">
-         <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="작곡/ 세션">
-          <input class="w3-light-white w3-round-xlarge w3-small"  type="button" onload="" value="투어 일정"></h6>
-        <div class="w3-container">
-          <hr>
-        </div>
-        <div class="w3-container">
+        <div class="container">
+  <h2>Accordion Example</h2>
+  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">앨범 설명</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">앨범에 대한 설명이 들어갑니다.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">연락처</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">연락처가 들어갑니다.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">뮤직 비디오</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body"><div class="w3-container">
         	<p>
         	<iframe width="560" height="315" src="https://www.youtube.com/embed/mGXB7fLjQWY" frameborder="0" allowfullscreen></iframe></p>		
           <p>본인 연락처(이메일) / 외부 SNS 링크들/ 매니저 연락처</p><br>
-        </div>
+        </div></div>
       </div>
+    </div>
+  
+   
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">작곡/세션</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">작곡/세션의 목록이 들어갑니다.</div>
+      </div>
+    </div>
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">투어일정</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">투어일정 들어갑니다.</div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div>
 	
 
     <!-- End Right Column -->
@@ -157,12 +232,3 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
