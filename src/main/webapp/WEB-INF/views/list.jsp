@@ -7,10 +7,10 @@
 </head>
 <body>
 <div align="center">
-	<b>글 목 록</b>
+	<b>앨범 목록</b>
 	<table border="0" width="600">
 		<tr bgcolor="yellow">
-			<td align="right"><a href="board_write">글쓰기</a></td>
+			<td align="right"><a href="album_write">글쓰기</a></td>
 		</tr>
 	</table>
 		<table border="1" width="600">
@@ -30,10 +30,9 @@
 				<tr>
 			<td>${list.albumnum}</td>
 			<td>
-				<a href="board_content?albumnum=${list.albumnum}">
+				<a href="album_content?albumnum=${list.albumnum}">
 					${list.albumtitle}
 				</a>
-				
 			</td>
 			<td>${list.genre}</td>
 		</tr>						
@@ -45,7 +44,3 @@
 </div>
 </body>
 </html>
-
-
-
-

@@ -33,6 +33,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     width:100%;
     position:absolute;
 }
+.panel-heading{
+	
+}
+.container{
+width: 100%;
+}
 </style>
 
 
@@ -52,7 +58,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-display-container">
         <a href="file_upload">ㄷㄷㄷㄷ
 				</a>
-	        <a href = "board_write">ㅋㅋㅋ</a>
+	        <a href = "album_write">ㅋㅋㅋ</a>
 		  <p>앨범명</p>
           <p>아티스트 이름</p>
           <img src="${pageContext.request.contextPath}/resources/redvelvet.jpg" style="width:100%" alt="앨범이미지">
@@ -68,7 +74,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   height="450"
   frameborder="0" style="border:0"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzFV5gXu_366ntwi1PIoa2RqUxD7PRByg
-    &q=Space+Needle,Seattle+WA" allowfullscreen>
+    &q=SEOUL" allowfullscreen> <!--  SEOUL있는 부분에 ${artistlist.address} -->
+    <!-- =뒤에다가 원하는 지역 이름넣을 수 있도록 estl로 짜면 된다. -->
 </iframe>
 </div>
           </p>
@@ -76,15 +83,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <p><i class="fa fa-group fa-fw w3-margin-right w3-large w3-text-teal"></i>좋아하는 아티스트</p>
           <hr>
 
+
+<!--  paypal 아이디 제공하기. -->
          <p>
 			<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-				
 				 <input type="hidden" name="cmd" value="_xclick">
-				 <input type="hidden" name="business" value="seller001@test.com">
+				 <input type="hidden" name="business" value="${artistlist.paypalId}">
 				 <input type="hidden" name="item_name" value="Content Name">
-				<input type="hidden" name="currency_code" value="KRW">
+				<input type="hidden" name="currency_code" value="USD">
 				 아티스트에게 팁주기<input type="hidden" name="item_number" value="0001"><br>
-				 가격 : <input type="text" name="amount" value="10" style ="width : 100px;"><br>
+				 가격 : <input type="text" name="amount" value="1" style ="width : 100px;"><br>
 				 <input type="hidden" name="custom" value="회원번호">
 				 <input type="hidden" name="charset" value="UTF-8">
 				 <input type="image" name="submit" border="0" 
@@ -144,29 +152,41 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 	<!-- right under -->
       <div class="w3-container w3-card w3-white">
         <div class="container">
-  <h2>Accordion Example</h2>
+  <h2>Accordion Example - 크기가 제멋대로인 녀석</h2>
   <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
   <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
+  
+  <!-- choose문으로 accordion panel들을 묶어준다. -->
+  <c:choose>
+	<c:when test="${albumlist.albumDesc != null}">
+		<div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">앨범 설명</a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body">앨범에 대한 설명이 들어갑니다.</div>
+        <div class="panel-body"><c:out value="${albumlist.albumDesc}"/></div> 
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
+	</c:when>
+	
+	
+	<c:when test="${artistlist.contact != null}">
+ <div class="panel panel-default">
+    <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">연락처</a>
         </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body">연락처가 들어갑니다.</div>
-      </div>
     </div>
+    <div id="collapse2" class="panel-collapse collapse">
+     <div class="panel-body"><c:out value="${artist.contact}"/></div>
+     <p>본인 연락처(이메일) / 외부 SNS 링크들/ 매니저 연락처</p>
+    </div>
+ </div>
+	</c:when>
+	
+	<c:when test="${albumlist.mvLink != null}">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -176,26 +196,24 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <div id="collapse3" class="panel-collapse collapse">
         <div class="panel-body"><div class="w3-container">
         	<p>
-        	<iframe width="560" height="315" src="https://www.youtube.com/embed/mGXB7fLjQWY" frameborder="0" allowfullscreen></iframe></p>		
-          <p>본인 연락처(이메일) / 외부 SNS 링크들/ 매니저 연락처</p><br>
-        </div></div>
+        	<iframe width="560" height="315" src="${albumlist.mvLink}" frameborder="0" allowfullscreen></iframe></p>		
       </div>
     </div>
-  
-   
-    <div class="panel panel-default">
+	</c:when>
+	<c:when test="${albumlist.contributor != null}">
+	<div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">작곡/세션</a>
         </h4>
       </div>
       <div id="collapse4" class="panel-collapse collapse">
-        <div class="panel-body">작곡/세션의 목록이 들어갑니다.</div>
+        <div class="panel-body"><c:out value="${albumlist.contributor}"/></div>
       </div>
     </div>
-    
-    
-    <div class="panel panel-default">
+	</c:when>
+	<c:when test="${artistlist.schedule != null}">
+	  <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">투어일정</a>
@@ -205,9 +223,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="panel-body">투어일정 들어갑니다.</div>
       </div>
     </div>
+	</c:when>
+</c:choose>
+ 
   </div> 
 </div>
 </div>
+
 	
 
     <!-- End Right Column -->

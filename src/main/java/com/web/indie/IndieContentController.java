@@ -34,25 +34,21 @@ import com.web.service.AlbumMapper;
 
 @Controller
 public class IndieContentController{
-
 	@Autowired
 	private AlbumMapper albumMapper;
-	
-		@RequestMapping(value="/board_list")
-		public ModelAndView board_list() {
+		@RequestMapping(value="/album_list")
+		public ModelAndView album_list() {
 			List<AlbumDBBean> list = albumMapper.listAlbum();
 			ModelAndView mav = new ModelAndView();
-			mav.addObject("boardList", list);
+			mav.addObject("albumList", list);
 			mav.setViewName("list");
 			return mav;
 		}
-		
-		
-		@RequestMapping(value="/board_write", method=RequestMethod.GET)
+		@RequestMapping(value="/album_write", method=RequestMethod.GET)
 		public String writeFormAlbum() throws Exception {
 			return "writeForm";
 		}
-		@RequestMapping(value="/board_write", method=RequestMethod.POST)
+		@RequestMapping(value="/album_write", method=RequestMethod.POST)
 		public ModelAndView writePro(HttpServletRequest arg0,
 				@ModelAttribute AlbumDBBean dto, BindingResult result) throws Exception {
 			if (result.hasErrors()) {
@@ -60,35 +56,35 @@ public class IndieContentController{
 				dto.setAlbumtitle("none");
 				dto.setGenre("none");
 				dto.setMusicFiles("");
+				dto.setAlbumImage("");
 				dto.setMvLink("");
-				dto.setAlbumDesc("");
+				dto.setAlbumDesc("none");
+		
 			}
-			
+			String uploadPath ="D:\\7월 자바 웹개발 김권능\\study\\hw";
 			String musicFiles = "";
 			String albumImage = "";
 			MultipartHttpServletRequest mr = (MultipartHttpServletRequest)arg0;
-			MultipartFile mfile = mr.getFile("musicFiles"); // multipartReqeust로 musicFiles이라고 넘긴 값을 MultipartFile에 넣어준다.
-			File mtarget = new File("", mfile.getOriginalFilename());  //target이라는 파일을 선언하고. (업로드경로, MultipartFile형식의 file로 받은애 원래 이름)을 넣어준다.
-			if (mfile.getSize()>0) {
-				mfile.transferTo(mtarget);//파일을 타켓으로 옮긴다.
-				musicFiles = mfile.getOriginalFilename();//앞서 선언해준 ""이란 파일name에 파일이름을 넘겨준다.
+			MultipartFile musicfile = mr.getFile("musicFiles"); // multipartReqeust로 musicFiles이라고 넘긴 값을 MultipartFile에 넣어준다.
+			File musictarget = new File(uploadPath, musicfile.getOriginalFilename());  //target이라는 파일을 선언하고. (업로드경로, MultipartFile형식의 file로 받은애 원래 이름)을 넣어준다.
+			if (musicfile.getSize()>0) {
+				musicfile.transferTo(musictarget);//파일을 타켓으로 옮긴다.
+				musicFiles = musicfile.getOriginalFilename();//앞서 선언해준 ""이란 파일name에 파일이름을 넘겨준다.
 			}
 			dto.setMusicFiles(musicFiles);//그리고 디티오에 저장!
 			
 			
-			MultipartFile afile = mr.getFile("albumImage");
-			File atarget = new File("", afile.getOriginalFilename());
-			if (afile.getSize()>0) {
-				afile.transferTo(atarget);//파일을 타켓으로 옮긴다.
-				albumImage = afile.getOriginalFilename();//앞서 선언해준 ""이란 파일name에 파일이름을 넘겨준다.
+			MultipartFile imagefile = mr.getFile("albumImage");
+			File atarget = new File(uploadPath, imagefile.getOriginalFilename());
+			if (imagefile.getSize()>0) {
+				imagefile.transferTo(atarget);//파일을 타켓으로 옮긴다.
+				albumImage = imagefile.getOriginalFilename();//앞서 선언해준 ""이란 파일name에 파일이름을 넘겨준다.
 			}
 			dto.setAlbumImage(albumImage);
-			
 			int res = albumMapper.insertAlbum(dto);
-			return new ModelAndView("redirect:board_list");
+			return new ModelAndView("redirect:album_list");
 		}
-
-		@RequestMapping(value="/board_content")
+		@RequestMapping(value="/album_content")
 		public ModelAndView getAlbum(HttpServletRequest req, @RequestParam String num) throws Exception {
 		int snum = Integer.parseInt(num);
 		AlbumDBBean dto = albumMapper.getAlbum(snum,"content");
@@ -97,18 +93,17 @@ public class IndieContentController{
 		mav.setViewName("content");
 		return mav;
 	}
-		@RequestMapping(value="/board_delete", method=RequestMethod.GET)
+		@RequestMapping(value="/album_delete", method=RequestMethod.GET)
 		public String deleteForm() {
 		return "deleteForm";
 	}
-		@RequestMapping(value="/board_update", method=RequestMethod.GET)
+		@RequestMapping(value="/album_update", method=RequestMethod.GET)
 		public ModelAndView UpdateFormAlbum(@RequestParam String num) throws Exception {
 		int snum = Integer.parseInt(num); // int를 받아오는 방법
 		AlbumDBBean dto = albumMapper.getAlbum(snum,"update"); // update라는 mode로 dto를 불러온다.
 		return new ModelAndView("board/updateForm", "getAlbum", dto); // "getAlbum"로 dto를 넘겨준다.
 	}
-	
-		@RequestMapping(value="/board_update", method=RequestMethod.POST)
+		@RequestMapping(value="/album_update", method=RequestMethod.POST)
 		protected ModelAndView UpdateProAlbum(HttpServletRequest req, @ModelAttribute AlbumDBBean dto, 
 				BindingResult result)
 		throws Exception {
@@ -133,15 +128,12 @@ public class IndieContentController{
 		}else if (res<0) {
 		}else {
 		}*/
-		return new ModelAndView("redirect:board_list");
+		return new ModelAndView("redirect:album_list");
 	}
-		
-		
 		@RequestMapping(value="/file_upload", method=RequestMethod.GET)
 		public String form() {
 		return "form";
 	}
-		
 		@RequestMapping(value="/file_upload", method=RequestMethod.POST)
 		// method = RequestMethod.GET 
 		public Map fileUpload(HttpServletRequest req, HttpServletResponse rep) 
@@ -174,7 +166,7 @@ public class IndieContentController{
 				// 설정한 path에 파일저장 
 				File serverFile = new File(path + File.separator + saveFileName); 
 				mfile.transferTo(serverFile); 
-				Map file = new HashMap(); 
+				Map file = new HashMap();  // file이라는 hashMap에 원래 파일이름인 origName과 정해준 특정 위치에 저장할 파일이름을 넣어줘야 한다.
 				file.put("origName", origName); 
 				file.put("sfile", serverFile); 
 				resultList.add(file); 

@@ -7,12 +7,12 @@
 <mapper namespace="com.web.model">
 	
 	<select id="listAlbum" resultType="AlbumDBBean">
-		select * from indie_album order by albumnum desc
+		select * from indie_album
 	</select>
   
   	<insert id="insertAlbum" parameterType="AlbumDBBean">
   		insert into indie_album values(indie_album_seq.nextval, 
-  		#{artistnum}, #{albumtitle}, #{genre}, #{musicFiles}, #{mvLink}, #{albumDesc}, 0, 0, 0, sysdate,  #{contributer},  #{albumImage})
+  		#{artistnum}, #{albumtitle}, #{genre}, #{musicFiles}, #{mvLink}, #{albumDesc}, 0, 0, 0, sysdate,  #{contributor},  #{albumImage})
   	</insert>
   	<select id="getAlbum" resultType="AlbumDBBean" parameterType="int">
 		select * from indie_album where albumnum = #{albumnum}

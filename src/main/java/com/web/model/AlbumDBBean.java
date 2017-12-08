@@ -4,7 +4,7 @@ public class AlbumDBBean {
 	private int albumnum;
 	private int artistnum;
 	private String albumtitle;
-	private String genre;	
+	private String genre;
 	private String musicFiles;
 	private String mvLink;
 	private String albumDesc;
