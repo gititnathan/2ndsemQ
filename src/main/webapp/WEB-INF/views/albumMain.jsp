@@ -61,14 +61,16 @@ width: 100%;
 	        <a href = "album_write">ㅋㅋㅋ</a>
 		  <p>앨범명</p>
           <p>아티스트 이름</p>
-          <img src="${pageContext.request.contextPath}/resources/redvelvet.jpg" style="width:100%" alt="앨범이미지">
+          <img src="resources/images/redvelvet.jpg" style="width:100%" alt="앨범이미지">
           <div class="w3-display-bottomleft w3-container w3-text-black">
           </div>
         </div>
         <div class="w3-container">
-          
+          <p></p>
+          <p></p>
           <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>사는 곳<br>
 			          <div class="map-responsive">
+			          <p></p>
     <iframe
   width="600"
   height="450"
@@ -92,7 +94,7 @@ width: 100%;
 				 <input type="hidden" name="item_name" value="Content Name">
 				<input type="hidden" name="currency_code" value="USD">
 				 아티스트에게 팁주기<input type="hidden" name="item_number" value="0001"><br>
-				 가격 : <input type="text" name="amount" value="1" style ="width : 100px;"><br>
+				 가격 : <input type="text" name="amount" value="1" style ="width : 100px;">
 				 <input type="hidden" name="custom" value="회원번호">
 				 <input type="hidden" name="charset" value="UTF-8">
 				 <input type="image" name="submit" border="0" 
@@ -127,7 +129,7 @@ width: 100%;
     <div class="w3-twothird">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>음악목록</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-paper fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>음악목록</h2>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>음악 리스트</b></h5>
           <h6 class="w3-text-teal"><i class="fa fa-headphones fa-fw w3-margin-right"></i>Jan 2015 -	<span class="w3-tag w3-teal w3-round">Current</span></h6>
