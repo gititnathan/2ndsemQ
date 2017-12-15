@@ -9,7 +9,7 @@ public class AlbumDBBean {
 	private String mvLink;
 	private String albumDesc;
 	private int downloadcount;
-	private int readcount;
+	private String readcount;
 	private int uplike;
 	private int regdate;
 	private String contributor;
@@ -75,10 +75,10 @@ public class AlbumDBBean {
 	public void setDownloadcount(int downloadcount) {
 		this.downloadcount = downloadcount;
 	}
-	public int getReadcount() {
+	public String getReadcount() {
 		return readcount;
 	}
-	public void setReadcount(int readcount) {
+	public void setReadcount(String readcount) {
 		this.readcount = readcount;
 	}
 	public int getUplike() {

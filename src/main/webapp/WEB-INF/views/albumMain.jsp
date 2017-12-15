@@ -58,7 +58,7 @@ width: 100%;
         <div class="w3-display-container">
         <a href="file_upload">ㄷㄷㄷㄷ
 				</a>
-	        <a href = "album_write">ㅋㅋㅋ</a>
+	        <a href = "board_list">ㅋㅋㅋ</a>
 		  <p>앨범명</p>
           <p>아티스트 이름</p>
           <img src="resources/images/redvelvet.jpg" style="width:100%" alt="앨범이미지">
