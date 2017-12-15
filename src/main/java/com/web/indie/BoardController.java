@@ -29,9 +29,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board_list")
 	public ModelAndView album_list() {
-		System.out.println("1");
 		List<BoardDBBean> list = boardMapper.listBoard();
-		System.out.println("2");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardList", list);
 		mav.setViewName("board_list");
@@ -43,7 +41,7 @@ public class BoardController {
 	AlbumDBBean dto = boardMapper.getBoard(snum,"content");
 	ModelAndView mav = new ModelAndView();
 	mav.addObject("getBoard", dto);
-	mav.setViewName("Bcontent");
+	mav.setViewName("content");
 	return mav;
 }
 	@RequestMapping(value="/indie_write", method=RequestMethod.GET)
@@ -59,9 +57,9 @@ public class BoardController {
 		System.out.println(dto.getArtistName()+ "3");
 		System.out.println(dto.getMvlink()+ "4"); 
 		
-		if (result.hasErrors()) {
-			dto.setAlbumImage("");
-		}
+//		if (result.hasErrors()) {
+//			dto.setAlbumImage("");
+//		}
 		String uploadPath ="D:\\7월 자바 웹개발 김권능\\study\\hw";
 		String albumImage = "";
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)arg0;//httpservletrequest로 받은 multipart에 들어있는 애들을 Multipart**로 바꿔준다.

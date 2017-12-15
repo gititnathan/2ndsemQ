@@ -53,13 +53,13 @@ public class IndieContentController{
 				@ModelAttribute AlbumDBBean dto, BindingResult result) throws Exception {
 			if (result.hasErrors()) {
 				dto.setArtistnum(0);
-				dto.setAlbumtitle("none");
+//				dto.setAlbumtitle("none");
 				dto.setGenre("none");
-				dto.setMusicFiles("");
+//				dto.setMusicFiles("");
 				dto.setAlbumImage("");
-				dto.setMvLink("");
-				dto.setAlbumDesc("none");
-		
+//				dto.setMvLink("");
+//				dto.setAlbumDesc("none");
+//		
 			}
 			String uploadPath ="D:\\7월 자바 웹개발 김권능\\study\\hw";
 			String musicFiles = "";

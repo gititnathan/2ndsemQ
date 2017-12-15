@@ -4,8 +4,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <%
-		AlbumDBBean albumdto = (AlbumDBBean)request.getAttribute("getAlbum"); 
-		String upPath = application.getRealPath("/shop/images");
+String upPath = application.getRealPath("/resources/images/");
 %>
 <html>
 <head>
@@ -17,36 +16,35 @@
 	<table border="1" width="500">
 		<tr>
 			<th bgcolor="yellow" width="15%">글번호</th>
-			<td align="center" width="35%">${getBoard.num}</td>
-			<th bgcolor="yellow" width="15%">조회수</th>
-			<td align="center" width="35%">${getBoard.readcount}</td>
+			<td align="center" width="35%">${getBoard.albumNum}</td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow" width="15%">작성자</th>
-			<td align="center" width="35%">${getBoard.writer}</td>
+			<th bgcolor="yellow" width="15%">아티스트</th>
+			<td align="center" width="35%">${getBoard.artistName}</td>
 			<th bgcolor="yellow" width="15%">작성일</th>
-			<td align="center" width="35%">${getBoard.reg_date}</td>
+			<td align="center" width="35%">${getBoard.regdate}</td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow" width="15%">글제목</th>
-			<td align="center" colspan="3">${getBoard.subject}</td>
+			<td align="center" colspan="3">${getBoard.albumName}</td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow" width="15%">글내용</th>
-			<td colspan="3">${getBoard.content}</td>
+			<td colspan="3"><iframe width="560" height="315" src="${getBoard.mvlink}" frameborder="0" allowfullscreen></iframe>
+		</td>
 		</tr>
 		<td align="center" class="m3">
-			<img src="<%=upPath%>/<%=albumdto.getAlbumImage()%>"
+			<img src="<%=upPath%>/${getBoard.albumImage}"
 															width="200" height="200">
 		</td>
 		<tr bgcolor="yellow">
 			<td colspan="4" align="right">
 				<input type="button" value="답글쓰기"
-					onclick="window.location='board_write?num=${getBoard.num}'">
+					onclick="window.location='board_write?num=${getBoard.albumNum}'">
 				<input type="button" value="글수정"
-					onclick="window.location='board_update?num=${getBoard.num}'">
+					onclick="window.location='board_update?num=${getBoard.albumNum}'">
 				<input type="button" value="글삭제"
-					onclick="window.location='board_delete?num=${getBoard.num}'">
+					onclick="window.location='board_delete?num=${getBoard.albumNum}'">
 				<input type="button" value="글목록" 
 					onclick="window.location='board_list'">
 			</td>

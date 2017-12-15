@@ -11,7 +11,7 @@ public class AlbumDBBean {
 	private int downloadcount;
 	private String readcount;
 	private int uplike;
-	private int regdate;
+	private String regdate;
 	private String contributor;
 	private String albumImage;
 	
@@ -87,10 +87,10 @@ public class AlbumDBBean {
 	public void setUplike(int uplike) {
 		this.uplike = uplike;
 	}
-	public int getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(int regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 	

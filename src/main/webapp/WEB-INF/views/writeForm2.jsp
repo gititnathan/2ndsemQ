@@ -31,10 +31,12 @@
 			<th bgcolor="yellow" size="50">앨범이미지</th>
 			<td><input type="file" name="albumImage"></td>
 		</tr>
+		<!-- activate preview image. -->
 		<tr>
 			<th bgcolor="yellow" width="20%">뮤비 링크</th>
 			<td><input type="text" name="mvlink" class="box" size="50"></td>
 		</tr>
+		<!--  make sure music video links are valid. -->
 		<tr bgcolor="yellow">
 			<td colspan="2" align="center">
 				<input type="submit" value="업로드">

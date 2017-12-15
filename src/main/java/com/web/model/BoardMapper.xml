@@ -14,7 +14,6 @@
 		select * from indie_album where albumnum = #{albumnum}
 	</select>
   	<insert id="insertBoard" parameterType="BoardDBBean">
-  		insert into indie_board values(indie_board_seq.nextval, 
-  		 #{albumName}, #{artistName}, sysdate,  #{mvlink} , #{albumImage})
+  		insert into indie_board values(indie_board_seq.nextval, #{albumName}, #{artistName}, sysdate,  #{mvlink} , #{albumImage})
   	</insert>
 </mapper>
