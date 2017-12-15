@@ -20,10 +20,12 @@
 			<th>번호</th>
 			<th width="30%">앨범타이틀</th>
 			<th>가수이름</th>
+			<th>뮤직비디오</th>
 			<th>이미지</th>
 		</tr>
 		<c:choose>
-		<c:when test = "${boardList == null}" >
+	
+		<c:when test = "${empty boardList}" >
 		<tr>
 			<td colspan="6">등록된 게시글이 없습니다.</td>
 		</tr>	
@@ -39,7 +41,12 @@
 			</td>
 			<td>${list.artistName}</td>
 		<td align="center" class="m3">
-			<iframe width="560" height="315" src="${list.mvLink}" frameborder="0" allowfullscreen></iframe>
+		<iframe width="560" height="315" src="${list.mvlink}" frameborder="0" allowfullscreen></iframe>
+		
+		</td>
+		<td align="center" class="m3">
+			<img src="<%=upPath%>/${list.albumImage}"
+															width="200" height="200">
 		</td>
 		</tr>						
 			</c:forEach>

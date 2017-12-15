@@ -10,9 +10,11 @@
 	<select id="listBoard" resultType="BoardDBBean">
 		select * from indie_board
 	</select>
-  
+  	<select id="getBoard" resultType="BoardDBBean" parameterType="int">
+		select * from indie_album where albumnum = #{albumnum}
+	</select>
   	<insert id="insertBoard" parameterType="BoardDBBean">
   		insert into indie_board values(indie_board_seq.nextval, 
-  		 #{albumName}, #{artistName}, #{albumImage}, sysdate,  #{mvlink})
+  		 #{albumName}, #{artistName}, sysdate,  #{mvlink} , #{albumImage})
   	</insert>
 </mapper>

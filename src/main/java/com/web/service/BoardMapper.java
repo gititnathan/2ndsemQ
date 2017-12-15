@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.web.model.AlbumDBBean;
 import com.web.model.BoardDBBean;
 
 @Service
@@ -13,7 +14,6 @@ public class BoardMapper {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
 	public int insertBoard(BoardDBBean dto) {
 		return sqlSession.insert("insertBoard", dto);
 	}
@@ -24,4 +24,7 @@ public class BoardMapper {
 		return sqlSession.selectList("listBoard");
 	}
 	
+	public AlbumDBBean getBoard(int num, String mode) {
+		return sqlSession.selectOne("getBoard", num);
+	}
 }

@@ -14,7 +14,7 @@
 <body>
 <div align="center">
 	<form  id="fileUpload" name="fileUpload"  action="indie_write" method="post" 
-	>
+	enctype= "multipart/form-data">
 	<table border="1" width="500">
 		<tr bgcolor="yellow">
 			<th colspan="2">앨범등록하기</th>
@@ -26,6 +26,10 @@
 		<tr>
 			<th bgcolor="yellow" size="50">가 수 이 름</th>
 			<td><input type="text" name="artistName" class="box"></td>
+		</tr>
+		<tr>
+			<th bgcolor="yellow" size="50">앨범이미지</th>
+			<td><input type="file" name="albumImage"></td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow" width="20%">뮤비 링크</th>
